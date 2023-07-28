@@ -1,0 +1,43 @@
+.main-card-container {
+  display: flex;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 2px;
+  justify-content: flex-start;
+  border: 5px;
+  padding: 30px;
+  margin: 10px;
+  align-items: flex-start;
+  flex-direction: column;  
+  & .main-card-header {
+    display: flex;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  & .card-author {
+    display: flex;
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  & .card-date {
+    display: flex;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  & .card-image {
+    display:flex ;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+  }
+  & .card-description {
+    display: flex;
+    padding-left: 15px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+  }
+}

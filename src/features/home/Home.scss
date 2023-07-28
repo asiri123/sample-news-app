@@ -1,0 +1,53 @@
+$primary-gradient-color: rgb(238, 174, 202);
+$secondary-gradient-color: radial-gradient(
+  circle,
+  rgba(238, 174, 202, 1) 0%,
+  rgb(199, 224, 252) 100%
+);
+
+$carousel-background: rgb(138, 90, 114);
+$carousel-background-level: radial-gradient(
+  circle,
+  rgba(138, 90, 114, 1) 0%,
+  rgba(188, 190, 194, 1) 100%
+);
+
+.home-main-container {
+  margin: 0px 15px;
+  & .header-main-container {
+    background: $primary-gradient-color;
+    background: $secondary-gradient-color;
+    padding: 10px 20px;
+  }
+  & .main-carousel-container {
+    display: flex;
+    border-radius: 10px;
+    margin: 15px 0px;
+    padding: 15px 0px;
+    background: $carousel-background;
+    background: $carousel-background-level;
+    justify-content: center;
+  }
+}
+
+.carousel-main-container {
+  position: relative;
+  text-align: center;
+  color: rgb(90, 13, 13);
+  & .carousel-image {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+  }
+  & .carousel-image-tile {
+    background-color: black;
+    opacity: 0.5;
+    font-size: 25px;
+    color: white !important;
+    font-weight: 500;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

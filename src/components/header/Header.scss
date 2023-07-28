@@ -1,0 +1,42 @@
+$primary-gradient-color: rgb(238, 174, 202);
+$secondary-gradient-color: radial-gradient(
+  circle,
+  rgba(238, 174, 202, 1) 0%,
+  rgba(148, 187, 233, 1) 100%
+);
+
+.home-header-container {
+  & .header-main-container {
+    background: $primary-gradient-color;
+    background: $secondary-gradient-color;
+    //padding: 10px 20px;
+    & .main-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    & .second-logo {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      & .sign-in-text {
+        display: flex;
+        margin-left: 10px;
+      }
+    }
+    & .third-logo {
+    }
+    & .search-container {
+      & .search-bar {
+        display: flex;
+        align-items: center;
+        background-color: #f5f5f5;
+        color: #abb4c6;
+        border-radius: 8px;
+        padding: 5px 20px;
+        //max-width: 60%;
+        height: 40px;
+      }
+    }
+  }
+}
