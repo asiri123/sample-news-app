@@ -24,7 +24,7 @@ I have used other tech platforms as mentioned below.<br/>
     - moment           - for time formattings<br/>
     - axios            - get the data from News Api endpoint<br/>
     - React-grid-system- for a fully responsive web app<br/>
-     
+
     
 ## Project running instruction
 first get a clone from the provided git repository  - (git clone "project http url")<br/>
@@ -34,8 +34,8 @@ give a `npm install` <br/>
 run the application using `npm start`<br/>
 
 ## project structure
-After successfully running the project you will be able to initially load the login screen.<br/>
-Then by clicking on the `signup or login` button in the header you can get navigat into "Menu" screen.<br/>
+After successfully running the project you will be able to initially load the home screen with news<br/>
+Here you can check the functionalities of the project<br/>
 
 ## Goal
 By working on this project my main goal is to get selected for this opportunity and improve more knowledge day by day.<br/>
