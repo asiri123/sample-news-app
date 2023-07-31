@@ -45,11 +45,15 @@ export const fetchTopNewsHeadlines = createAsyncThunk(
 export const homeSlice = createSlice({
   name: "newsData",
   initialState,
-  reducers: {},
+  reducers: {
+    getCardData: (state) => {
+        
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchTopNewsHeadlines.pending, (state) => {
-        state.status = "loading" 
+        state.status = "loading"
       })
       .addCase(fetchTopNewsHeadlines.fulfilled, (state, action) => {
         state.status = "idle"
@@ -60,6 +64,8 @@ export const homeSlice = createSlice({
       })
   },
 })
+
+export const { getCardData } = homeSlice.actions
 
 export const selectTopHeadlines = (state: RootState) => state.news.newsItemList
 

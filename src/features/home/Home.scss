@@ -13,7 +13,7 @@ $carousel-background-level: radial-gradient(
 );
 
 .home-main-container {
-  margin: 0px 15px;
+  margin: 0px 0px;
   & .header-main-container {
     background: $primary-gradient-color;
     background: $secondary-gradient-color;
@@ -22,7 +22,7 @@ $carousel-background-level: radial-gradient(
   & .main-carousel-container {
     display: flex;
     border-radius: 10px;
-    margin: 15px 0px;
+    margin: 15px 40px;
     padding: 15px 0px;
     background: $carousel-background;
     background: $carousel-background-level;

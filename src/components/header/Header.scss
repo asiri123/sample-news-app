@@ -9,7 +9,7 @@ $secondary-gradient-color: radial-gradient(
   & .header-main-container {
     background: $primary-gradient-color;
     background: $secondary-gradient-color;
-    //padding: 10px 20px;
+    padding: 10px 10px;
     & .main-logo {
       display: flex;
       align-items: center;
@@ -24,8 +24,6 @@ $secondary-gradient-color: radial-gradient(
         margin-left: 10px;
       }
     }
-    & .third-logo {
-    }
     & .search-container {
       & .search-bar {
         display: flex;
@@ -34,7 +32,6 @@ $secondary-gradient-color: radial-gradient(
         color: #abb4c6;
         border-radius: 8px;
         padding: 5px 20px;
-        //max-width: 60%;
         height: 40px;
       }
     }

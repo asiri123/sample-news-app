@@ -1,26 +1,25 @@
 import { useEffect } from "react"
-import { Header, Card,Footer } from "../../components"
+import { Header, Card, Footer } from "../../components"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { selectTopHeadlines, fetchTopNewsHeadlines } from "./homeSlice"
+import { selectTopHeadlines, fetchTopNewsHeadlines,getCardData } from "./homeSlice"
 import { Button, Paper } from "@mui/material"
-
-
 import Carousel from "react-material-ui-carousel"
-
+import { useNavigate } from "react-router-dom"
 import "./Home.scss"
 
 const Home = (props: any) => {
   const newsHeadlines = useAppSelector(selectTopHeadlines)
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(fetchTopNewsHeadlines())
   }, [])
-  
+
   const Item = (props: any) => {
     return (
       <div className="carousel-main-container">
-        <Paper elevation={0} style={{backgroundColor:"transparent"}}>
+        <Paper elevation={0} style={{ backgroundColor: "transparent" }}>
           <img
             src={props.item.urlToImage}
             alt={props.item.urlToImage}
@@ -30,6 +29,11 @@ const Home = (props: any) => {
         </Paper>
       </div>
     )
+  }
+
+  const cardItemClickAction = () => {
+    dispatch(getCardData())
+    navigate("/details")
   }
 
   return (
@@ -44,7 +48,7 @@ const Home = (props: any) => {
           ))}
         </Carousel>
       </div>
-      <div> 
+      <div>
         {newsHeadlines.map((items, key) => (
           <Card
             headline={items.title}
@@ -52,11 +56,12 @@ const Home = (props: any) => {
             date={items.publishedAt}
             image={items.urlToImage}
             description={items.description}
+            OnClickViewDetails={cardItemClickAction}
           />
         ))}
       </div>
       <div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   )

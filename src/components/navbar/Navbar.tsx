@@ -19,27 +19,47 @@ export default function Navbar() {
             <Tab
               label="Polotical"
               value="1"
-              style={{ color: "#000000", textTransform: "none",fontWeight:"700" }}
+              style={{
+                color: "#000000",
+                textTransform: "none",
+                fontWeight: "700",
+              }}
             />
             <Tab
               label="Sport"
               value="2"
-              style={{ color: "#000000", textTransform: "none",fontWeight:"700" }}
+              style={{
+                color: "#000000",
+                textTransform: "none",
+                fontWeight: "700",
+              }}
             />
             <Tab
               label="Travel"
               value="3"
-              style={{ color: "#000000", textTransform: "none" ,fontWeight:"700"}}
+              style={{
+                color: "#000000",
+                textTransform: "none",
+                fontWeight: "700",
+              }}
             />
             <Tab
               label="Culture"
               value="4"
-              style={{ color: "#000000", textTransform: "none" ,fontWeight:"700" }}
+              style={{
+                color: "#000000",
+                textTransform: "none",
+                fontWeight: "700",
+              }}
             />
             <Tab
               label="Life"
               value="5"
-              style={{ color: "#000000", textTransform: "none" ,fontWeight:"700"}}
+              style={{
+                color: "#000000",
+                textTransform: "none",
+                fontWeight: "700",
+              }}
             />
           </TabList>
         </Box>

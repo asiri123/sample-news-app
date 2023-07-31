@@ -1,0 +1,35 @@
+.news-detail-main-container {
+  & .body-main-container {
+    margin: 32px 130px;
+    & .header-text-container {
+      font-size: 30px;
+      font-weight: 700;
+      font-family: sans-serif;
+      padding-bottom: 25px;
+    }
+    & .header-date-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 15px;
+    }
+    & .author-text-container {
+      font-size: 20px;
+      font-family: sans-serif;
+    }
+    & .description-text-container {
+      text-align: left;
+    }
+  }
+  & .back-button-container {
+    display: flex;
+    margin: 30px 120px;
+    cursor: pointer;
+    & .back-button {
+      width: 100px;
+      border-color: black;
+      color: black;
+      font-weight: 500;
+    }
+  }
+}
