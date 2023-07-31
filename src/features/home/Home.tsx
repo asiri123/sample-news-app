@@ -1,14 +1,22 @@
-import { useEffect } from "react"
-import { Header, Card, Footer } from "../../components"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { selectTopHeadlines, fetchTopNewsHeadlines,getCardData } from "./homeSlice"
-import { Button, Paper } from "@mui/material"
+import React, { useState, useEffect } from 'react';
+import { Paper } from "@mui/material"
 import Carousel from "react-material-ui-carousel"
+import { Header, Card, Footer, Loader } from "../../components"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import {
+  selectNews,
+  fetchTopNewsHeadlines,
+  setSelectedNewsItem,
+  HeadlineItem,
+} from "./homeSlice"
 import { useNavigate } from "react-router-dom"
 import "./Home.scss"
 
-const Home = (props: any) => {
-  const newsHeadlines = useAppSelector(selectTopHeadlines)
+const Home = () => {
+
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
+  const { newsItemList, status } = useAppSelector(selectNews)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
@@ -16,24 +24,41 @@ const Home = (props: any) => {
     dispatch(fetchTopNewsHeadlines())
   }, [])
 
-  const Item = (props: any) => {
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            setShowTopBtn(true);
+        } else {
+            setShowTopBtn(false);
+        }
+    });
+}, []);
+
+  const cardItemClickAction = (item: HeadlineItem) => {
+    dispatch(setSelectedNewsItem(item))
+    navigate("/details")
+  }
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
+
+  const renderItem = (item: HeadlineItem) => {
     return (
-      <div className="carousel-main-container">
+      <div key={item?.title} className="carousel-main-container">
         <Paper elevation={0} style={{ backgroundColor: "transparent" }}>
           <img
-            src={props.item.urlToImage}
-            alt={props.item.urlToImage}
+            src={item?.urlToImage}
+            alt={item?.urlToImage}
             className="carousel-image"
           ></img>
-          <div className="carousel-image-tile">{props.item.title}</div>
+          <div className="carousel-image-tile">{item?.title}</div>
         </Paper>
       </div>
     )
-  }
-
-  const cardItemClickAction = () => {
-    dispatch(getCardData())
-    navigate("/details")
   }
 
   return (
@@ -42,20 +67,14 @@ const Home = (props: any) => {
         <Header />
       </div>
       <div className="main-carousel-container">
-        <Carousel>
-          {newsHeadlines.map((item, i) => (
-            <Item key={i} item={item} />
-          ))}
-        </Carousel>
+        <Carousel>{newsItemList?.map((item) => renderItem(item))}</Carousel>
       </div>
+      {status === "loading" && <Loader />}
       <div>
-        {newsHeadlines.map((items, key) => (
+        {newsItemList?.map((item) => (
           <Card
-            headline={items.title}
-            author={items.author}
-            date={items.publishedAt}
-            image={items.urlToImage}
-            description={items.description}
+            key={item?.title}
+            item={item}
             OnClickViewDetails={cardItemClickAction}
           />
         ))}
