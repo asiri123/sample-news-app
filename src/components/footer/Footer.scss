@@ -1,0 +1,42 @@
+$primary-gradient-color: rgb(238, 174, 202);
+$secondary-gradient-color: radial-gradient(
+  circle,
+  rgba(238, 174, 202, 1) 0%,
+  rgba(148, 187, 233, 1) 100%
+);
+
+.footer-main-container {
+  background: $primary-gradient-color;
+  background: $secondary-gradient-color;
+  padding: 20px 60px;
+  & .social-media-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    & .social-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 600;
+    }
+  }
+  & .country-centers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .country-items {
+      font-weight: 600;
+      text-align: left;
+    }
+  }
+  & .centers-locations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .center-items {
+      font-weight: 600;
+      text-align: left;
+    }
+  }
+}
