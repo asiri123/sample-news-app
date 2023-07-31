@@ -19,12 +19,14 @@ export interface HeadlineItem {
 }
 
 export interface HeadlineState {
-  newsItemList: HeadlineItem[]
+  newsItemList: HeadlineItem[];
+  selectedNewsItem?: HeadlineItem | null;
   status: "idle" | "loading" | "failed"
 }
 
 const initialState: HeadlineState = {
   newsItemList: [],
+  selectedNewsItem: null,
   status: "idle",
 }
 
@@ -46,8 +48,8 @@ export const homeSlice = createSlice({
   name: "newsData",
   initialState,
   reducers: {
-    getCardData: (state) => {
-        
+    setSelectedNewsItem: (state, action) => {
+      state.selectedNewsItem = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -65,8 +67,8 @@ export const homeSlice = createSlice({
   },
 })
 
-export const { getCardData } = homeSlice.actions
+export const { setSelectedNewsItem } = homeSlice.actions
 
-export const selectTopHeadlines = (state: RootState) => state.news.newsItemList
+export const selectNews = (state: RootState) => state.news
 
 export default homeSlice.reducer
