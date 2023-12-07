@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect } from 'react';
 import { Paper } from "@mui/material"
 import Carousel from "react-material-ui-carousel"
 import { Header, Card, Footer, Loader } from "../../components"
@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom"
 import "./Home.scss"
 
 const Home = () => {
+
+  const [showTopBtn, setShowTopBtn] = useState(false);
+
   const { newsItemList, status } = useAppSelector(selectNews)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
@@ -21,10 +24,27 @@ const Home = () => {
     dispatch(fetchTopNewsHeadlines())
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            setShowTopBtn(true);
+        } else {
+            setShowTopBtn(false);
+        }
+    });
+}, []);
+
   const cardItemClickAction = (item: HeadlineItem) => {
     dispatch(setSelectedNewsItem(item))
     navigate("/details")
   }
+
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+};
 
   const renderItem = (item: HeadlineItem) => {
     return (
